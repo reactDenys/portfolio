@@ -7,10 +7,13 @@ const setActive = (currentLink) => {
         });
 
         currentLink.classList.add('active');
+        if (nav_toggle.classList.contains('active') && header.classList.contains('active')) {
+            removeActiveClass();
+        }
     }
 }
 
-const activeFunk = (position) => {
+const activeFunk = position => {
     if (window.pageYOffset >= 0 && window.pageYOffset <= 600) {
         setActive(navbar[0])
     } else if (window.pageYOffset > 600 && window.pageYOffset <= 1050) {

@@ -1,4 +1,6 @@
 const skills = document.querySelectorAll('.skill_experience_percent');
+const perc = [90, 85, 79, 91, 63, 92];
+let animatedSkills = false;
 
 const setSkillCount = (skills, perc) => {
     for (let i = 0; i <= skills.length - 1; i++) {
@@ -7,14 +9,12 @@ const setSkillCount = (skills, perc) => {
     }
 }
 
-const perc = [90, 85, 79, 91, 63, 92];
-let i = false;
 
-window.addEventListener('scroll', function () {
+window.addEventListener('scroll', () => {
     if (window.pageYOffset >= 300) {
-        if (i === false) {
+        if (!animatedSkills) {
             setSkillCount(skills, perc);
-            i = true;
+            animatedSkills = true;
         }
     }
 });
